@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return inertia('Home');
 });
+
+Route::get('/add', function () {
+    return inertia('NewProject');
+})->name('add.projects');
