@@ -14,7 +14,7 @@ use App\Http\Controllers\ProjectFrController;
 |
 */
 
-Route::get('/', [ProjectFrController::class, 'index'])->name('projects');
+Route::get('/', [ProjectFrController::class, 'index'])->name('projects')->middleware('auth');
 
 Route::get('/add', [ProjectFrController::class, 'create'])->name('add.projects');
 Route::get('/edit/{id}', [ProjectFrController::class, 'edit'])->name('edit.projects');
