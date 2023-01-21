@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Client;
 
 class Project extends Model
 {
@@ -11,6 +12,7 @@ class Project extends Model
 
     public $timestamps = false;
     protected $table = 'tb_m_project';
+    protected $primaryKey = "project_id";
 
     protected $fillable = [
         'project_name',
@@ -22,6 +24,6 @@ class Project extends Model
 
     public function client()
     {
-        return $this->belongsTo('App\Models\Client','client_id');
+        return $this->belongsTo(Client::class, 'client_id', 'client_id');
     }
 }

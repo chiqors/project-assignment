@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjectFrController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return inertia('Home');
-});
+Route::get('/', [ProjectFrController::class, 'index'])->name('projects');
 
-Route::get('/add', function () {
-    return inertia('NewProject');
-})->name('add.projects');
+Route::get('/add', [ProjectFrController::class, 'create'])->name('add.projects');
+Route::get('/edit/{id}', [ProjectFrController::class, 'edit'])->name('edit.projects');
+Route::post('/store', [ProjectFrController::class, 'store'])->name('store.projects');
+Route::put('/update/{id}', [ProjectFrController::class, 'update'])->name('update.projects');
+Route::delete('/delete/{id}', [ProjectFrController::class, 'destroy'])->name('delete.projects');
